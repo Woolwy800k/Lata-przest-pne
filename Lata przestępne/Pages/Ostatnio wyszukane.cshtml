@@ -1,0 +1,24 @@
+﻿@page
+@model Lata_przestępne.Pages.Ostatnio_wyszukane
+@{
+    ViewData["Title"] = "Ostatniowyszukane";
+}
+<h1 class="display-4">Ostatnio_wyszukane</h1>
+@if(Model.LLataPrzestępne != null) {
+    <form method="post">
+        <ul class="list-group list-group-flush">
+            @foreach(var wiersz in Model.LLataPrzestępne)
+            {
+                <li class="list-group-items">
+                    <span>
+                        @wiersz.Data @wiersz.Imie @wiersz.Nazwisko, @wiersz.Rok był @wiersz.Przestepnosc(wiersz.Rok)przestępny.
+                    </span>
+                    <input class="btn-primary btn-danger" style="float: right" type="submit" asp-page-handler="DeleteRecord" asp-route-RecordId="@wiersz.Id" value="Delete" />
+                </li>
+            }
+        </ul>
+    </form>
+}
+else {
+    <p>Brak wyników.</p>
+}

@@ -1,0 +1,15 @@
+﻿@page
+@model Lata_przestępne.Pages.Zapisane
+@{
+    ViewData["Title"] = "Data in session";
+}
+<h1 class="display-4">Dane zapisane w sesji</h1>
+@if (Model.wiersz != null)
+{
+    <ul class="list-group list-group-flush">
+        @foreach(string[] wiersz in Model.wiersz){
+            <li class="list-group-item">@wiersz[0], @wiersz[1] - rok @wiersz[2]  przestępny</li>
+        }
+    </ul>
+}
+© 2022 GitHub, Inc.
